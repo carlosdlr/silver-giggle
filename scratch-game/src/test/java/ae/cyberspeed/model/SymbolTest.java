@@ -51,6 +51,4 @@ public class SymbolTest {
                 .readValue(symbolStandard, Symbols.class);
         assertEquals("standard", beanStandard.a.getType().getType());
     }
-
-
 }
