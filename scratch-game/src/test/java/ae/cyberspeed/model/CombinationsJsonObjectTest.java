@@ -39,5 +39,5 @@ public class CombinationsJsonObjectTest {
                 .readValue(jsonObject.get("win_combinations").asJsonObject().get("same_symbols_horizontally").toString());
         assertEquals(3, beanStandard.getCoveredAreas().size());
     }
-    
+
 }
