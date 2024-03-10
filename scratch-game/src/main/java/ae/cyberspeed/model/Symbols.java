@@ -4,29 +4,27 @@ import com.fasterxml.jackson.annotation.*;
 
 public class Symbols {
 
-    @JsonProperty("A")
+    @JsonProperty(value = "A", index = 1)
     public StandardSymbol a;
-    @JsonProperty("B")
+    @JsonProperty(value = "B", index = 2)
     public StandardSymbol b;
-    @JsonProperty("C")
+    @JsonProperty(value = "C", index = 3)
     public StandardSymbol c;
-    @JsonProperty("D")
+    @JsonProperty(value = "D", index = 4)
     public StandardSymbol d;
-    @JsonProperty("E")
+    @JsonProperty(value = "E", index = 5)
     public StandardSymbol e;
-    @JsonProperty("F")
+    @JsonProperty(value = "F", index = 6)
     public StandardSymbol f;
-    @JsonProperty("10x")
+    @JsonProperty(value = "10x", index = 7)
     public BonusSymbol _10x;
-    @JsonProperty("5x")
+    @JsonProperty(value = "5x", index = 8)
     public BonusSymbol _5x;
-
-    @JsonProperty("+1000")
+    @JsonProperty(value = "+1000", index = 9)
     public BonusSymbol plus1000;
-
-    @JsonProperty("+500")
+    @JsonProperty(value = "+500", index = 10)
     public BonusSymbol plus500;
-    @JsonProperty("MISS")
+    @JsonProperty(value = "MISS", index = 11)
     public BonusSymbol miss;
 
 }

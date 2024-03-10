@@ -1,11 +1,17 @@
 package ae.cyberspeed.model;
 
-import java.util.*;
+import com.fasterxml.jackson.annotation.*;
 
 public class ProbabilityBonusSymbol {
 
-    private int column;
-    private int row;
+    private Symbols symbols;
 
-    private List<BonusSymbol> bonusSymbols;
+    @JsonCreator
+    public ProbabilityBonusSymbol(@JsonProperty("symbols") Symbols symbols) {
+        this.symbols = symbols;
+    }
+
+    public Symbols getSymbols() {
+        return symbols;
+    }
 }
