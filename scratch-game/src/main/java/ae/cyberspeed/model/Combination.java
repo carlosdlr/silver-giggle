@@ -1,5 +1,7 @@
 package ae.cyberspeed.model;
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.util.*;
 
 public abstract class Combination {
@@ -8,11 +10,11 @@ public abstract class Combination {
     private String when;
     private int count;
     private String group;
-
-    private List<String> coveredAreas;
+    @JsonIgnoreProperties
+    private List<List<String>> coveredAreas;
 
     protected Combination(double rewardMultiplier, String when, int count,
-                       String group, List<String> coveredAreas) {
+                       String group, List<List<String>> coveredAreas) {
         this.rewardMultiplier = rewardMultiplier;
         this.when = when;
         this.count = count;
@@ -36,7 +38,7 @@ public abstract class Combination {
         return group;
     }
 
-    protected List<String> getCoveredAreas() {
+    protected List<List<String>> getCoveredAreas() {
         return coveredAreas;
     }
 }
