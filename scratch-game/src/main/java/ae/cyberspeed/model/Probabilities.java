@@ -10,8 +10,10 @@ public class Probabilities {
     private ProbabilityBonusSymbol bonusSymbols;
 
     @JsonCreator
-    public Probabilities(@JsonProperty("standard_symbols") List<ProbabilityStandardSymbol> standardSymbols) {
+    public Probabilities(@JsonProperty("standard_symbols") List<ProbabilityStandardSymbol> standardSymbols,
+                         @JsonProperty("bonus_symbols") ProbabilityBonusSymbol bonusSymbols) {
         this.standardSymbols = standardSymbols;
+        this.bonusSymbols = bonusSymbols;
     }
 
     public List<ProbabilityStandardSymbol> getStandardSymbols() {

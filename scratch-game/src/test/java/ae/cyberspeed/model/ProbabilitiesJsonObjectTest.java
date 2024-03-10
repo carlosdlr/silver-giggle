@@ -6,8 +6,6 @@ import jakarta.json.*;
 import net.joshka.junit.json.params.*;
 import org.junit.jupiter.params.*;
 
-import java.util.*;
-
 import static org.junit.Assert.*;
 
 public class ProbabilitiesJsonObjectTest {
@@ -44,5 +42,15 @@ public class ProbabilitiesJsonObjectTest {
                 .readValue(jsonObject.get("probabilities").asJsonObject()
                         .get("bonus_symbols").asJsonObject().toString());
         assertEquals(1, beanStandard.getSymbols()._10x.getIntValue());
+    }
+
+    @ParameterizedTest(name = "{index} => name=''{0}''")
+    @JsonFileSource(resources = {"/probabilities.json"})
+    public void shouldCheckProbabilitiesCompleteMapping_thenCorrect(JsonObject jsonObject) throws JsonProcessingException {
+        Probabilities beanStandard = new ObjectMapper()
+                .readerFor(Probabilities.class)
+                .readValue(jsonObject.get("probabilities").asJsonObject().toString());
+        assertEquals(2, beanStandard.getStandardSymbols().size());
+        assertEquals(1, beanStandard.getBonusSymbols().getSymbols()._10x.getIntValue());
     }
 }
