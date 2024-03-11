@@ -39,7 +39,4 @@ public class BonusSymbol extends Symbol {
         return intValue;
     }
 
-    public double applyAction(Function<Double, Double> action) {
-        return action.apply(this.extra);
-    }
 }

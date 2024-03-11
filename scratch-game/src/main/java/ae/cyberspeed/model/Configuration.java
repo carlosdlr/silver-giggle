@@ -16,11 +16,11 @@ public class Configuration {
                          @JsonProperty("symbols") Symbols symbols,
                          @JsonProperty("probabilities") Probabilities probabilities,
                          @JsonProperty("win_combinations") WinCombinations winCombinations) {
-        this.columns = this.columns;
-        this.rows = this.rows;
-        this.symbols = this.symbols;
-        this.probabilities = this.probabilities;
-        this.winCombinations = this.winCombinations;
+        this.columns = columns;
+        this.rows = rows;
+        this.symbols = symbols;
+        this.probabilities = probabilities;
+        this.winCombinations = winCombinations;
     }
 
     public int getColumns() {

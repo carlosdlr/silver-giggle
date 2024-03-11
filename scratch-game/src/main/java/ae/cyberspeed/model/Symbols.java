@@ -3,7 +3,6 @@ package ae.cyberspeed.model;
 import com.fasterxml.jackson.annotation.*;
 
 public class Symbols {
-
     @JsonProperty(value = "A", index = 1)
     public StandardSymbol a;
     @JsonProperty(value = "B", index = 2)
