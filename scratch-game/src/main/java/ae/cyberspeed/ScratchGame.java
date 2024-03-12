@@ -4,6 +4,7 @@ import ae.cyberspeed.model.*;
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 
+import java.lang.reflect.*;
 import java.util.*;
 
 import static ae.cyberspeed.logic.FunctionsUtil.*;
@@ -14,10 +15,9 @@ public class ScratchGame {
 
     private static Logger LOGGER = getLogger("ScratchGame");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         // first step read configuration and bet value
-        var betAmount = 100D;
-        final var mapper = new ObjectMapper();
+        final var betAmount = 100D;
 
         LOGGER.log(Level.INFO,"-----------------Loading configuration---------------");
         final var configurationFunc = getConfiguration().apply("src/main/resources/configuration.json");
@@ -26,26 +26,20 @@ public class ScratchGame {
 
 
         // let's shuffle the symbols matrix
-        var symbolsList = getSymbolsAsList(configuration.getSymbols());
+        var symbolsList = getListOfType(Symbol.class, Symbols.class);
         var shuffledMatrix = getShuffledSymbols(configuration.getRows(),
                 configuration.getColumns()).apply(symbolsList);
         LOGGER.log(Level.INFO, "-----------------Shuffling symbols---------------");
     }
 
-    private static List<Symbol> getSymbolsAsList(Symbols symbols) {
-        var symbolsList = new ArrayList<Symbol>();
-        symbolsList.add(symbols.a);
-        symbolsList.add(symbols.b);
-        symbolsList.add(symbols.c);
-        symbolsList.add(symbols.d);
-        symbolsList.add(symbols.e);
-        symbolsList.add(symbols.f);
-        symbolsList.add(symbols._5x);
-        symbolsList.add(symbols._10x);
-        symbolsList.add(symbols.plus1000);
-        symbolsList.add(symbols.plus500);
-        symbolsList.add(symbols.miss);
-        return symbolsList;
+    public static <T, R> List<T> getListOfType(Class<T> clazz, Class<R> containerObject)
+            throws InstantiationException, IllegalAccessException {
+        List<T> genericList = new ArrayList<>();
+        Field[] fields = containerObject.getFields();
+        for (Field field : fields) {
+           
+        }
+        return genericList;
     }
 
 }

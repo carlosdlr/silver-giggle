@@ -25,12 +25,12 @@ public class FunctionsUtil {
         };
     }
 
-    public static Function<List<Symbol>, List<List<Symbol>>> getShuffledSymbols(int rows, int cols) {
+    public static Function<List<?>, List<List<?>>> getShuffledSymbols(int rows, int cols) {
         return symbols -> {
-            List<List<Symbol>> shuffledMatrix = new ArrayList<>(rows);
+            List<List<?>> shuffledMatrix = new ArrayList<>(rows);
             symbols.forEach(row -> {
                 Collections.shuffle(symbols);
-                List<Symbol> symbolsRow = new ArrayList<>(symbols.subList(0, cols));
+                List<?> symbolsRow = new ArrayList<>(symbols.subList(0, cols));
                 Collections.shuffle(symbolsRow);
                 if(shuffledMatrix.size()< rows)
                     shuffledMatrix.add(symbolsRow);
@@ -39,7 +39,17 @@ public class FunctionsUtil {
         };
     }
 
-    public static BiFunction<List<List<Symbol>>, Double, GameBoard> calcualteGameReward() {
+    public static BiFunction<List<List<Symbol>>, List<WinCombination>, GameBoard> calcualteGameReward(double betAmount) {
+        BiFunction<String, Configuration, WinCombination>
+                findWinCpombination = (combinationName, configuration) -> {
+
+
+
+            return null;
+        };
+
+        //var checkIfThereIs3SameSymbols
+
         return (matrix, bettingValue) -> {
 
             return null;
