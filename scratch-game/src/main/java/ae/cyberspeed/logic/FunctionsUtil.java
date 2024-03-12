@@ -1,5 +1,6 @@
 package ae.cyberspeed.logic;
 
+import ae.cyberspeed.*;
 import ae.cyberspeed.model.*;
 import com.fasterxml.jackson.databind.*;
 
@@ -37,4 +38,14 @@ public class FunctionsUtil {
           return shuffledMatrix;
         };
     }
+
+    public static BiFunction<List<List<Symbol>>, Double, GameBoard> calcualteGameReward() {
+        return (matrix, bettingValue) -> {
+
+            return null;
+        };
+    }
+
+
+
 }

@@ -15,7 +15,7 @@ public class ScratchGame {
     private static Logger LOGGER = getLogger("ScratchGame");
 
     public static void main(String[] args) {
-        // firsts step rea configuration and bet value
+        // first step read configuration and bet value
         var betAmount = 100D;
         final var mapper = new ObjectMapper();
 

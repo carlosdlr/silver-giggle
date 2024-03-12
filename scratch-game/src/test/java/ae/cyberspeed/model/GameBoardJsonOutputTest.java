@@ -7,23 +7,13 @@ import org.junit.*;
 
 import java.util.*;
 
+import static org.junit.Assert.*;
+
 public class GameBoardJsonOutputTest {
 
     @Test
     public void shouldGenerateGameBoardJsonOutput_thencorrect() throws JsonProcessingException {
-        var output = "{\n" +
-                "    \"matrix\": [\n" +
-                "        [\"A\", \"A\", \"B\"],\n" +
-                "        [\"A\", \"+1000\", \"B\"],\n" +
-                "        [\"A\", \"A\", \"B\"]\n" +
-                "    ],\n" +
-                "    \"reward\": 6600,\n" +
-                "    \"applied_winning_combinations\": {\n" +
-                "        \"A\": [\"same_symbol_5_times\", \"same_symbols_vertically\"],\n" +
-                "        \"B\": [\"same_symbol_3_times\", \"same_symbols_vertically\"]\n" +
-                "    },\n" +
-                "    \"applied_bonus_symbol\": \"+1000\"\n" +
-                "}";
+        var output = "{\"matrix\":[],\"reward\":0,\"applied_winning_combinations\":{\"symbols\":null},\"applied_bonus_symbol\":null}";
 
         var objectMapper = new ObjectMapper();
 
@@ -31,7 +21,6 @@ public class GameBoardJsonOutputTest {
                 .writeValueAsString(new GameBoard(new ArrayList<>(),0,
                         new AppliedWinningCombinations(), new Symbols()._10x));
 
-        System.out.println(standardSymbolOutput);
-
+        assertEquals(output, standardSymbolOutput);
     }
 }
