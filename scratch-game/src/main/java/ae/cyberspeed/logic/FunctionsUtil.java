@@ -25,12 +25,12 @@ public class FunctionsUtil {
         };
     }
 
-    public static Function<List<?>, List<List<?>>> getShuffledSymbols(int rows, int cols) {
+    public static Function<List<Symbol>, List<List<Symbol>>> getShuffledSymbols(int rows, int cols) {
         return symbols -> {
-            List<List<?>> shuffledMatrix = new ArrayList<>(rows);
+            List<List<Symbol>> shuffledMatrix = new ArrayList<>(rows);
             symbols.forEach(row -> {
                 Collections.shuffle(symbols);
-                List<?> symbolsRow = new ArrayList<>(symbols.subList(0, cols));
+                List<Symbol> symbolsRow = new ArrayList<>(symbols.subList(0, cols));
                 Collections.shuffle(symbolsRow);
                 if(shuffledMatrix.size()< rows)
                     shuffledMatrix.add(symbolsRow);

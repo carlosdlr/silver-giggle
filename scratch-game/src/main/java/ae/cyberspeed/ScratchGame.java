@@ -15,7 +15,7 @@ public class ScratchGame {
 
     private static Logger LOGGER = getLogger("ScratchGame");
 
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+    public static void main(String[] args) {
         // first step read configuration and bet value
         final var betAmount = 100D;
 
@@ -30,6 +30,12 @@ public class ScratchGame {
         var shuffledMatrix = getShuffledSymbols(configuration.getRows(),
                 configuration.getColumns()).apply(symbolsList);
         LOGGER.log(Level.INFO, "-----------------Shuffling symbols---------------");
+
+        // let's calculate the reward
+        List<WinCombination> winCombinationList = getListOfType(configuration.getWinCombinations());
+        var gameBoardResult = calcualteGameReward(betAmount)
+                .apply(shuffledMatrix, winCombinationList);
+        
     }
 
     public static <T> List<T> getListOfType(Object containerObject) {
