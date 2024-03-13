@@ -15,7 +15,7 @@ public class ScratchGame {
 
     private static Logger LOGGER = getLogger("ScratchGame");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException, IllegalAccessException {
         // first step read configuration and bet value
         final var betAmount = 100D;
 
@@ -27,22 +27,28 @@ public class ScratchGame {
 
         // let's shuffle the symbols matrix
         List<Symbol> symbolsList = getListOfType(configuration.getSymbols());
-        var shuffledMatrix = getShuffledSymbols(configuration.getRows(),
+        final var shuffledMatrix = getShuffledSymbols(configuration.getRows(),
                 configuration.getColumns()).apply(symbolsList);
         LOGGER.log(Level.INFO, "-----------------Shuffling symbols---------------");
 
         // let's calculate the reward
-        List<WinCombination> winCombinationList = getListOfType(configuration.getWinCombinations());
-        var gameBoardResult = calcualteGameReward(betAmount)
+        final List<WinCombination> winCombinationList = getListOfType(configuration.getWinCombinations());
+        LOGGER.log(Level.INFO, "-----------------Calculating reward---------------");
+        final var gameBoardResult = calculateGameReward(betAmount)
                 .apply(shuffledMatrix, winCombinationList);
-        
+
+        final var mapper = new ObjectMapper();
+        LOGGER.log(Level.INFO, "------Reward Result---------------");
+        LOGGER.log(Level.INFO, mapper.writeValueAsString(gameBoardResult));
+
     }
 
-    public static <T> List<T> getListOfType(Object containerObject) {
+    public static <T> List<T> getListOfType(Object containerObject) throws IllegalAccessException {
         List<T> genericList = new ArrayList<>();
         Field[] fields = containerObject.getClass().getFields();
         for (Field field : fields) {
-            genericList.add((T) field.getType());
+            T obj = (T) field.get(containerObject);
+            genericList.add(obj);
         }
         return genericList;
     }
