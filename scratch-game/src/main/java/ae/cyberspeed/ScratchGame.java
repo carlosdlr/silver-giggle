@@ -26,18 +26,17 @@ public class ScratchGame {
 
 
         // let's shuffle the symbols matrix
-        var symbolsList = getListOfType(Symbol.class, Symbols.class);
+        List<Symbol> symbolsList = getListOfType(configuration.getSymbols());
         var shuffledMatrix = getShuffledSymbols(configuration.getRows(),
                 configuration.getColumns()).apply(symbolsList);
         LOGGER.log(Level.INFO, "-----------------Shuffling symbols---------------");
     }
 
-    public static <T, R> List<T> getListOfType(Class<T> clazz, Class<R> containerObject)
-            throws InstantiationException, IllegalAccessException {
+    public static <T> List<T> getListOfType(Object containerObject) {
         List<T> genericList = new ArrayList<>();
-        Field[] fields = containerObject.getFields();
+        Field[] fields = containerObject.getClass().getFields();
         for (Field field : fields) {
-           
+            genericList.add((T) field.getType());
         }
         return genericList;
     }
