@@ -19,7 +19,7 @@ public class GameBoardJsonOutputTest {
 
         var standardSymbolOutput = objectMapper
                 .writeValueAsString(new GameBoard(new ArrayList<>(),0,
-                        new AppliedWinningCombinations(), new Symbols()._10x));
+                        new AppliedWinningCombinations(), new Symbols().get_10x()));
 
         assertEquals(output, standardSymbolOutput);
     }

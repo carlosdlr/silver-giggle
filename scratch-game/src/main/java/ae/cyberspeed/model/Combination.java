@@ -13,6 +13,8 @@ public abstract class Combination {
     @JsonIgnoreProperties
     private List<List<String>> coveredAreas;
 
+    private String name;
+
     protected Combination(double rewardMultiplier, String when, int count,
                        String group, List<List<String>> coveredAreas) {
         this.rewardMultiplier = rewardMultiplier;
@@ -40,5 +42,12 @@ public abstract class Combination {
 
     protected List<List<String>> getCoveredAreas() {
         return coveredAreas;
+    }
+
+    protected String getName() {
+        return name;
+    }
+    protected void setName(String name) {
+        this.name = name;
     }
 }

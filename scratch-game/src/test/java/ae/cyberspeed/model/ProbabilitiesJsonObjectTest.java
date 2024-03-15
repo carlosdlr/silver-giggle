@@ -29,7 +29,7 @@ public class ProbabilitiesJsonObjectTest {
                 .readerFor(ProbabilityStandardSymbol.class)
                 .readValue(jsonObject.get("probabilities").asJsonObject()
                         .get("standard_symbols").asJsonArray().get(0).toString());
-        assertEquals(1, beanStandard.getSymbols().a.getIntValue());
+        assertEquals(1, beanStandard.getSymbols().getA().getIntValue());
         assertEquals(0, beanStandard.getRow());
         assertEquals(0, beanStandard.getColumn());
     }
@@ -41,7 +41,7 @@ public class ProbabilitiesJsonObjectTest {
                 .readerFor(ProbabilityBonusSymbol.class)
                 .readValue(jsonObject.get("probabilities").asJsonObject()
                         .get("bonus_symbols").asJsonObject().toString());
-        assertEquals(1, beanStandard.getSymbols()._10x.getIntValue());
+        assertEquals(1, beanStandard.getSymbols().get_10x().getIntValue());
     }
 
     @ParameterizedTest(name = "{index} => name=''{0}''")
@@ -51,6 +51,6 @@ public class ProbabilitiesJsonObjectTest {
                 .readerFor(Probabilities.class)
                 .readValue(jsonObject.get("probabilities").asJsonObject().toString());
         assertEquals(2, beanStandard.getStandardSymbols().size());
-        assertEquals(1, beanStandard.getBonusSymbols().getSymbols()._10x.getIntValue());
+        assertEquals(1, beanStandard.getBonusSymbols().getSymbols().get_10x().getIntValue());
     }
 }

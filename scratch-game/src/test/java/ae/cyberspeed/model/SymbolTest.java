@@ -49,6 +49,6 @@ public class SymbolTest {
 
         Symbols beanStandard = new ObjectMapper()
                 .readValue(symbolStandard, Symbols.class);
-        assertEquals("standard", beanStandard.a.getType().getType());
+        assertEquals("standard", beanStandard.getA().getType().getType());
     }
 }

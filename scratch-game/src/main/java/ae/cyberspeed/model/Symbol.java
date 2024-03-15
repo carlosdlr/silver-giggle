@@ -5,6 +5,8 @@ public abstract class Symbol {
     private SymbolType type;
     private double rewardMultiplier;
 
+    private String name;
+
     protected Symbol(SymbolType type, double rewardMultiplier) {
         this.type = type;
         this.rewardMultiplier = rewardMultiplier;
@@ -18,6 +20,11 @@ public abstract class Symbol {
         return type;
     }
 
+    protected String getName() {
+        return name;
+    }
 
-
+    protected void setName(String name) {
+        this.name = name;
+    }
 }

@@ -43,14 +43,17 @@ public class ScratchGame {
 
     }
 
-    public static <T> List<T> getListOfType(Object containerObject) throws IllegalAccessException {
+    private static <T> List<T> getListOfType(Object containerObject) throws IllegalAccessException {
         List<T> genericList = new ArrayList<>();
-        Field[] fields = containerObject.getClass().getFields();
+        Field[] fields = containerObject.getClass().getDeclaredFields();
         for (Field field : fields) {
+            field.setAccessible(true);
             T obj = (T) field.get(containerObject);
             genericList.add(obj);
         }
         return genericList;
     }
+
+
 
 }

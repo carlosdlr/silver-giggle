@@ -4,35 +4,134 @@ import com.fasterxml.jackson.annotation.*;
 
 public class WinCombinations {
     @JsonProperty("same_symbol_3_times")
-    public WinCombination sameSymbol3Times;
+    private WinCombination sameSymbol3Times;
 
     @JsonProperty("same_symbol_4_times")
-    public WinCombination sameSymbol4Times;
+    private WinCombination sameSymbol4Times;
 
     @JsonProperty("same_symbol_5_times")
-    public WinCombination sameSymbol5Times;
+    private WinCombination sameSymbol5Times;
 
     @JsonProperty("same_symbol_6_times")
-    public WinCombination sameSymbol6Times;
+    private WinCombination sameSymbol6Times;
 
     @JsonProperty("same_symbol_7_times")
-    public WinCombination sameSymbol7Times;
+    private WinCombination sameSymbol7Times;
 
     @JsonProperty("same_symbol_8_times")
-    public WinCombination sameSymbol8Times;
+    private WinCombination sameSymbol8Times;
 
     @JsonProperty("same_symbol_9_times")
-    public WinCombination sameSymbol9Times;
+    private WinCombination sameSymbol9Times;
 
     @JsonProperty("same_symbols_horizontally")
-    public WinCombination sameSymbolsHorizontally;
+    private WinCombination sameSymbolsHorizontally;
 
     @JsonProperty("same_symbols_diagonally_left_to_right")
-    public WinCombination sameSymbolsDiagonallyLeftToRight;
+    private WinCombination sameSymbolsDiagonallyLeftToRight;
 
     @JsonProperty("same_symbols_vertically")
-    public WinCombination sameSymbolsVertically;
+    private WinCombination sameSymbolsVertically;
 
     @JsonProperty("same_symbols_diagonally_right_to_left")
-    public WinCombination sameSymbolsDiagonallyRightToLeft;
+    private WinCombination sameSymbolsDiagonallyRightToLeft;
+
+    public WinCombination getSameSymbol3Times() {
+        return sameSymbol3Times;
+    }
+
+    public void setSameSymbol3Times(WinCombination sameSymbol3Times) {
+        sameSymbol3Times.setName("same_symbol_3_times");
+        this.sameSymbol3Times = sameSymbol3Times;
+    }
+
+    public WinCombination getSameSymbol4Times() {
+        return sameSymbol4Times;
+    }
+
+    public void setSameSymbol4Times(WinCombination sameSymbol4Times) {
+        sameSymbol4Times.setName("same_symbol_4_times");
+        this.sameSymbol4Times = sameSymbol4Times;
+    }
+
+    public WinCombination getSameSymbol5Times() {
+        return sameSymbol5Times;
+    }
+
+    public void setSameSymbol5Times(WinCombination sameSymbol5Times) {
+        sameSymbol5Times.setName("same_symbol_5_times");
+        this.sameSymbol5Times = sameSymbol5Times;
+    }
+
+    public WinCombination getSameSymbol6Times() {
+        return sameSymbol6Times;
+    }
+
+    public void setSameSymbol6Times(WinCombination sameSymbol6Times) {
+        sameSymbol6Times.setName("same_symbol_6_times");
+        this.sameSymbol6Times = sameSymbol6Times;
+    }
+
+    public WinCombination getSameSymbol7Times() {
+        return sameSymbol7Times;
+    }
+
+    public void setSameSymbol7Times(WinCombination sameSymbol7Times) {
+        sameSymbol7Times.setName("same_symbol_7_times");
+        this.sameSymbol7Times = sameSymbol7Times;
+    }
+
+    public WinCombination getSameSymbol8Times() {
+        return sameSymbol8Times;
+    }
+
+    public void setSameSymbol8Times(WinCombination sameSymbol8Times) {
+        sameSymbol8Times.setName("same_symbol_8_times");
+        this.sameSymbol8Times = sameSymbol8Times;
+    }
+
+    public WinCombination getSameSymbol9Times() {
+        return sameSymbol9Times;
+    }
+
+    public void setSameSymbol9Times(WinCombination sameSymbol9Times) {
+        sameSymbol9Times.setName("same_symbol_9_times");
+        this.sameSymbol9Times = sameSymbol9Times;
+    }
+
+    public WinCombination getSameSymbolsHorizontally() {
+        return sameSymbolsHorizontally;
+    }
+
+    public void setSameSymbolsHorizontally(WinCombination sameSymbolsHorizontally) {
+        sameSymbolsHorizontally.setName("same_symbols_horizontally");
+        this.sameSymbolsHorizontally = sameSymbolsHorizontally;
+    }
+
+    public WinCombination getSameSymbolsDiagonallyLeftToRight() {
+        return sameSymbolsDiagonallyLeftToRight;
+    }
+
+    public void setSameSymbolsDiagonallyLeftToRight(WinCombination sameSymbolsDiagonallyLeftToRight) {
+        sameSymbolsDiagonallyLeftToRight.setName("same_symbols_diagonally_left_to_right");
+        this.sameSymbolsDiagonallyLeftToRight = sameSymbolsDiagonallyLeftToRight;
+    }
+
+    public WinCombination getSameSymbolsVertically() {
+        return sameSymbolsVertically;
+    }
+
+    public void setSameSymbolsVertically(WinCombination sameSymbolsVertically) {
+        sameSymbolsVertically.setName("same_symbols_vertically");
+        this.sameSymbolsVertically = sameSymbolsVertically;
+    }
+
+    public WinCombination getSameSymbolsDiagonallyRightToLeft() {
+        return sameSymbolsDiagonallyRightToLeft;
+    }
+
+    public void setSameSymbolsDiagonallyRightToLeft(WinCombination sameSymbolsDiagonallyRightToLeft) {
+        sameSymbolsDiagonallyRightToLeft.setName("same_symbols_diagonally_right_to_left");
+        this.sameSymbolsDiagonallyRightToLeft = sameSymbolsDiagonallyRightToLeft;
+    }
 }

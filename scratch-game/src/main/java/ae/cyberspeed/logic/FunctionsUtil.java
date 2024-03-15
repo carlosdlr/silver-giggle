@@ -40,22 +40,21 @@ public class FunctionsUtil {
     }
 
     public static BiFunction<List<List<Symbol>>, List<WinCombination>, GameBoard> calculateGameReward(double betAmount) {
-        BiFunction<String, Configuration, WinCombination>
-                findWinCpombination = (combinationName, configuration) -> {
 
+        Function<WinCombination, Double> findWinComination = combination -> {
+            var reward = 0D;
 
-
-            return null;
+            return reward;
         };
+
 
         //var checkIfThereIs3SameSymbols
 
-        return (matrix, bettingValue) -> {
+        return (matrix, combinations) -> {
 
             return null;
         };
     }
-
 
 
 }
