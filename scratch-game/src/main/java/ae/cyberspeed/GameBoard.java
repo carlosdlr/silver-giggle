@@ -8,9 +8,9 @@ import java.util.*;
 
 public class GameBoard {
 
-    private List<List<Symbols>> matrix;
+    private List<List<Symbol>> matrix;
 
-    private int reward;
+    private double reward;
 
     @JsonProperty("applied_winning_combinations")
     private AppliedWinningCombinations appliedWinningCombinations;
@@ -18,8 +18,8 @@ public class GameBoard {
     @JsonProperty("applied_bonus_symbol")
     private BonusSymbol appliedBonusSymbol;
 
-    public GameBoard(List<List<Symbols>> matrix,
-                     int reward,
+    public GameBoard(List<List<Symbol>> matrix,
+                     double reward,
                      AppliedWinningCombinations appliedWinningCombinations,
                      BonusSymbol bonusSymbol) {
         this.matrix = matrix;
@@ -28,7 +28,7 @@ public class GameBoard {
         this.appliedBonusSymbol = appliedBonusSymbol;
     }
 
-    public void setMatrix(List<List<Symbols>> matrix) {
+    public void setMatrix(List<List<Symbol>> matrix) {
         this.matrix = matrix;
     }
 
@@ -44,11 +44,11 @@ public class GameBoard {
         this.appliedBonusSymbol = appliedBonusSymbol;
     }
 
-    public List<List<Symbols>> getMatrix() {
+    public List<List<Symbol>> getMatrix() {
         return matrix;
     }
 
-    public int getReward() {
+    public double getReward() {
         return reward;
     }
 

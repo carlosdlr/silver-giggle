@@ -24,15 +24,15 @@ public abstract class Combination {
         this.coveredAreas = coveredAreas;
     }
 
-    protected double getRewardMultiplier() {
+    public double getRewardMultiplier() {
         return rewardMultiplier;
     }
 
-    protected String getWhen() {
+    public String getWhen() {
         return when;
     }
 
-    protected int getCount() {
+    public int getCount() {
         return count;
     }
 
@@ -44,7 +44,7 @@ public abstract class Combination {
         return coveredAreas;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
     protected void setName(String name) {

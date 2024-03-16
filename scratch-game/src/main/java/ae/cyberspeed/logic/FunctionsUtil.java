@@ -10,6 +10,8 @@ import java.util.function.*;
 
 public class FunctionsUtil {
 
+    private static final String SAME_SYMBOLS = "same_symbols";
+
     public static Function<String, Optional<Configuration>> getConfiguration() {
         return fileName -> {
             ObjectMapper mapper = new ObjectMapper();
@@ -40,19 +42,26 @@ public class FunctionsUtil {
     }
 
     public static BiFunction<List<List<Symbol>>, List<WinCombination>, GameBoard> calculateGameReward(double betAmount) {
+        return (matrix, winCombinations) -> {
+            var reward = winCombinations.stream().map(combination -> {
+                var rewardAcc = 0.0D;
+                rewardAcc += findWinCombination(betAmount).apply(combination, matrix);
+                return rewardAcc;
+            });
 
-        Function<WinCombination, Double> findWinComination = combination -> {
-            var reward = 0D;
-
-            return reward;
+            return new GameBoard(matrix, reward.mapToDouble(d -> d).average().orElse(0D),
+                    null, null);
         };
+    }
 
-
-        //var checkIfThereIs3SameSymbols
-
-        return (matrix, combinations) -> {
-
-            return null;
+    private static BiFunction<WinCombination, List<List<Symbol>>, Double> findWinCombination(double betAmount) {
+        return (wincombination, matrix) -> {
+            var reward = 0D;
+            if(!wincombination.getWhen().equals(SAME_SYMBOLS)) {
+                return reward;
+            }
+            
+            return reward;
         };
     }
 
